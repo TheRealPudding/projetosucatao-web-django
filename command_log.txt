@@ -28,12 +28,12 @@ When resuming the work in another machine
 ### If it was on a DIFFERENT BRANCH (not the main):
 > Pull every branch using "git fetch origin"
 > Change to the branch using "git checkout branchname" (Usually something like "feat/nameoffeature")
--> If git gives a warning use "git switch branchname" instead
+    -> If git gives a warning use "git switch branchname" instead
 
 ### And then, after pulling changes from both main or a branch:
 > Activate the virtual environment
--> On windows: ".venv\Scripts\Activate"
--> On Linux/MacOS: "source .venv/bin/activate"
+    -> On windows: ".venv\Scripts\Activate"
+    -> On Linux/MacOS: "source .venv/bin/activate"
 > Install the requirements of the project using "pip install -r requirements.txt"
 
 ### And after you're done (Commits were already made in the branch and pushed into github, and you want to switch back to the main while you merge pull requests):
