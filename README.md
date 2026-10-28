@@ -3,7 +3,8 @@ Projeto para a Administração de um sistema de um Ferro Velho.
 
 ## Sobre o Projeto
 Projeto Web para a Administração completa de um sitema de Ferro Velho utilizando Django e PostgreSQL
-### Com os objetivos de:
+
+### Objetivos:
 - Gerenciamento de Funcionários
 - Realização e Histórico de Transações
 - Checagem e Reajustes do Armazenamento de material
