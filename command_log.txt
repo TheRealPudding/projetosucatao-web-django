@@ -1,0 +1,41 @@
+# STARTING OUT THE PROJECT
+> Create a virtual environment using "python -m venv .venv"
+.venv is a convention name that means "Virtual Environment" that 1 - bypasses "tab" errors when creating a .env file and 2 - is included in the .gitignore
+
+> install django using "pip install django", if necessary: Update your pip (tutorial is included in the tool).
+
+> start the project using "django-admin startproject core ."
+core is a convention name that is literally the CORE (main) part of your django project. where all the main configurations and ideas will reside.
+and the dot (.) at the end of the command is for it to start in the current folder, to stop it from generating redundant folders like project/project/views.py
+
+> save the required packages in pip using "pip freeze > requirements.txt"
+requirements.txt will be a file used to synchronize both computers into the same packages needed for the code to run
+
+
+# IMPORTANT - IN CASE OF MULTIPLE MACHINES
+When resuming the work in another machine
+
+## If it's the first time:
+> Clone work with "git clone https://github.com/TheRealPudding/projetosucatao-web-django" then change to the right directory using "cd projetosucatao-web-django"
+> Create the virtual environment using "python -m venv .venv"
+> Install the requirements of the project using "pip install -r requirements.txt"
+
+## If it's NOT the first time:
+
+### If the last progress was on the main branch:
+> Pull the changes made to the project using "git pull" if it's on the main branch
+
+### If it was on a DIFFERENT BRANCH (not the main):
+> Pull every branch using "git fetch origin"
+> Change to the branch using "git checkout branchname" (Usually something like "feat/nameoffeature")
+-> If git gives a warning use "git switch branchname" instead
+
+### And then, after pulling changes from both main or a branch:
+> Install the requirements of the project using "pip install -r requirements.txt"
+
+### And after you're done (Commits were already made in the branch and pushed into github, and you want to switch back to the main while you merge pull requests):
+> Change back to main using "git checkout main" or "git switch main"
+
+### If there is a Ghost branch (A local branch that was already deleted in github after you merged it with main earlier):
+> Delete the gost branch using "git branch -d branchname"
+> Prune any remaining non existing branch references in the machine using "git fetch --prune" (Prune in this case is cutting off local branches that don't exist in remote)
