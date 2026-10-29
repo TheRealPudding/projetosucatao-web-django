@@ -86,6 +86,9 @@ When resuming the work in another machine
 ## If it's the first time:
 > Clone work with "git clone https://github.com/TheRealPudding/projetosucatao-web-django" then change to the right directory using "cd projetosucatao-web-django"
 > Create the virtual environment using "python -m venv .venv"
+> Activate the virtual environment
+    -> On windows: ".venv\Scripts\activate"
+    -> On Linux/MacOS: "source .venv/bin/activate"
 > Install the requirements of the project using "pip install -r requirements.txt"
 
 ## If it's NOT the first time:
@@ -100,7 +103,7 @@ When resuming the work in another machine
 
 ### And then, after pulling changes from both main or a branch:
 > Activate the virtual environment
-    -> On windows: ".venv\Scripts\Activate"
+    -> On windows: ".venv\Scripts\activate"
     -> On Linux/MacOS: "source .venv/bin/activate"
 > Install the requirements of the project using "pip install -r requirements.txt"
 
