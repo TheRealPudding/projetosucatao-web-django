@@ -1,18 +1,81 @@
-# STARTING OUT THE PROJECT
+# 1 - STARTING OUT THE DJANGO PROJECT
 > Create a virtual environment using "python -m venv .venv"
 .venv is a convention name that means "Virtual Environment" that 1 - bypasses "tab" errors when creating a .env file and 2 - is included in the .gitignore
 
-> install django using "pip install django", if necessary: Update your pip (tutorial is included in the tool).
+> Install django using "pip install django", if necessary: Update your pip (tutorial is included in the tool).
 
-> start the project using "django-admin startproject core ."
+> Start the project using "django-admin startproject core ."
 core is a convention name that is literally the CORE (main) part of your django project. where all the main configurations and ideas will reside.
 and the dot (.) at the end of the command is for it to start in the current folder, to stop it from generating redundant folders like project/project/views.py
 
-> save the required packages in pip using "pip freeze > requirements.txt"
+> Save the required packages in pip using "pip freeze > requirements.txt"
 requirements.txt will be a file used to synchronize both computers into the same packages needed for the code to run
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
 
-# IMPORTANT - IN CASE OF MULTIPLE MACHINES
+# 2 - COMMITTING AND PULLING FILES ON GIT (Sending or Receiving)
+Through the CLI (the most surefire/tratidional method of doing so):
+
+## * Committing Into Main (usually for documentation changes AKA "docs:" commits)
+> Add the modified files and code into the source control's commit changes using "git add ."
+> Create the commit using "git commit" This will open nano (built-in note editor in the CLI,) to make the commit message
+    -> 1st line of the message is the title of the commit, the 3rd line is the description
+        Example:
+        1 - docs: editing x
+        2 -
+        3 - editing x because reason y to fix problem z
+    -> After editing the commit message, press either Ctrl+O to save the file then Ctrl+X to close the editor
+        Pressing Ctrl+X directly should also give you a small warning of unsaved changes and give you the option to press Y to save it from there as well.
+> Push the changes into main using "git push origin main"
+
+## * Committing Into a Branch (+ Creating a Branch)
+
+### IMPORTANT MESSAGE BEFORE PROCEEDING WITH PUSHING COMMITS:
+It is good practice to create the branch BEFORE writing any new code (feature, bugfix, etc.) 
+But it is not necessary AS LONG AS YOU DON'T COMMIT ANYTHING TO MAIN BEFORE YOU CREATE THE BRANCH
+The reason for that is the fact that, in the case that the code has any issues that messes anything up: You'll have to walk back the changes in git directly.
+
+### To create a branch
+> Create and switch to your branch using "git checkout -b branchname" ("checkout -b" is a command+flag to create a branch and switch into it)
+    -> Alternatively, you can create a branch separately using the command "git branch branchname startpoint" (startpoint is in case you want to branch from an old version)
+    -> And then switch to it using "git switch branchname" (if jumping from 2 branches, use "git switch -" to jump back into a previous branch)
+
+    -> Alternatively you can ALSO create AND switch branches immediately by using the flag -c in "git switch -c branchname" ("-c" is a "create branch" flag)
+
+### Then to push into the branch
+> Similar progression as into main: "git add ." then "git commit" which leads into the editor to write the message for the commit
+> Push the commit into the branch by using command "git push origin branchname"
+
+## * IMPORTANT DETAIL: UPSTREAM AND TRACKED BRANCHES.
+> Adding the flag -u into any "git push", which leads to "git push -u origin whereyourepushing" (the whereyourepushing being main or any branch)
+Will make that branch "upstream" (AKA: DEFAULT/TRACKED) and let you do just "git push" and "git pull" directly into it later without any variable in the command.
+
+## * Pulling branches
+> To directly pull changes from remote you use "git pull", this pulls the repo that your git is currently tracking (the upstream/default)
+    -> Alternatively you can do both steps (download and merge) directly using "git fetch" (download changes from remote) and "git merge" (merge changes into the code)
+> But to pull changes from a specific branch that is NOT the default/upstream, use "git pull origin branchname" to do that directly.
+    -> If doing "git fech origin branchname" proceed with "git merge origin/branchname" (with a slash) 
+        If done without the slash it creates a new isolated tracker named "origin/branchname"
+
+### Useful flags when Pulling ("git pull --flag --or-flags origin branchname")
+> "--ff-only" serves to specify to pull ONLY when the changes DON'T NEED A MERGE (new files only), if a merge is needed, it refuses.
+> "--rebase" is used to cleanly merge two different commits into one timeline.
+    Detailed Explanation of rebase: Imagine if a branch starts at commit A, then you're doing a commit for whatever reason resulting in commit B
+    BUT while you're making it (not pushed into remote yet), someone (or you) makes a commit C that changes a different part of the code.
+    That will create a divergence in the commit timeline, which will then be merged into a point/commit D. which leaves a mess in the commit timeline.
+
+    A ---> Commit C ---------\
+       \                      \ ---> Commit D (Merge commit: "Merge branch 'main'")
+        ---> Commit B -------/
+    
+    With the --rebase, it will pull the changes from Commit C and then insert them into the already WIP (Work-in-Progress) code of Commit B
+    It acts as if the code for Commit B was added on top of the changes done in commit C, merging them BEFORE Commit B is pushed to Remote.
+
+    A --> Commit C --> Commit B
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 3 - RESUMING WORKFLOW ON MULTIPLE MACHINES
 When resuming the work in another machine
 
 ## If it's the first time:
