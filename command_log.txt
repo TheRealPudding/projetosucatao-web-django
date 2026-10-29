@@ -1,13 +1,18 @@
 # 1 - STARTING OUT THE DJANGO PROJECT
 > Create a virtual environment using "python -m venv .venv"
 .venv is a convention name that means "Virtual Environment" that 1 - bypasses "tab" errors when creating a .env file and 2 - is included in the .gitignore
+
 > Activate the virtual environment
     -> On windows: ".venv\Scripts\Activate"
     -> On Linux/MacOS: "source .venv/bin/activate"
 > Install django using "pip install django", if necessary: Update your pip (tutorial is included in the tool).
+
 > Start the project using "django-admin startproject core ."
 core is a convention name that is literally the CORE (main) part of your django project. where all the main configurations and ideas will reside.
 and the dot (.) at the end of the command is for it to start in the current folder, to stop it from generating redundant folders like "project/project/views.py"
+
+> Install psycopg (binary, for development purposes) for Postgre support and django-environ for git security using "pip install psycopg[binary] django-environ"
+
 > Save the required packages in pip using "pip freeze > requirements.txt"
 requirements.txt will be a file used to synchronize both computers into the same packages needed for the code to run
 
