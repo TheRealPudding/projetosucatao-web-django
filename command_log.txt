@@ -1,13 +1,13 @@
 # 1 - STARTING OUT THE DJANGO PROJECT
 > Create a virtual environment using "python -m venv .venv"
 .venv is a convention name that means "Virtual Environment" that 1 - bypasses "tab" errors when creating a .env file and 2 - is included in the .gitignore
-
+> Activate the virtual environment
+    -> On windows: ".venv\Scripts\Activate"
+    -> On Linux/MacOS: "source .venv/bin/activate"
 > Install django using "pip install django", if necessary: Update your pip (tutorial is included in the tool).
-
 > Start the project using "django-admin startproject core ."
 core is a convention name that is literally the CORE (main) part of your django project. where all the main configurations and ideas will reside.
-and the dot (.) at the end of the command is for it to start in the current folder, to stop it from generating redundant folders like project/project/views.py
-
+and the dot (.) at the end of the command is for it to start in the current folder, to stop it from generating redundant folders like "project/project/views.py"
 > Save the required packages in pip using "pip freeze > requirements.txt"
 requirements.txt will be a file used to synchronize both computers into the same packages needed for the code to run
 
@@ -54,8 +54,8 @@ Will make that branch "upstream" (AKA: DEFAULT/TRACKED) and let you do just "git
 > To directly pull changes from remote you use "git pull", this pulls the repo that your git is currently tracking (the upstream/default)
     -> Alternatively you can do both steps (download and merge) directly using "git fetch" (download changes from remote) and "git merge" (merge changes into the code)
 > But to pull changes from a specific branch that is NOT the default/upstream, use "git pull origin branchname" to do that directly.
-    -> If doing "git fech origin branchname" proceed with "git merge origin/branchname" (with a slash) 
-        If done without the slash it creates a new isolated tracker named "origin/branchname"
+    -> If doing "git fech origin branchname" proceed with "git merge origin/branchname" (with a slash) this merges the remote and local branches correctly.
+        If done without the slash it tries to merge both from a local branch named "origin" and a local branch with the name you put in "branchname"
 
 ### Useful flags when Pulling ("git pull --flag --or-flags origin branchname")
 > "--ff-only" serves to specify to pull ONLY when the changes DON'T NEED A MERGE (new files only), if a merge is needed, it refuses.
